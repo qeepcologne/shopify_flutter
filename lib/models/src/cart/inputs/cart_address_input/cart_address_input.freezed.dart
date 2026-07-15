@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$CartAddressInput {
 
- String? get copyFromCustomerAddressId; CartDeliveryAddressInput? get deliveryAddress;
+@JsonKey(includeIfNull: false) String? get copyFromCustomerAddressId;@JsonKey(includeIfNull: false) CartDeliveryAddressInput? get deliveryAddress;
 /// Create a copy of CartAddressInput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $CartAddressInputCopyWith<$Res>  {
   factory $CartAddressInputCopyWith(CartAddressInput value, $Res Function(CartAddressInput) _then) = _$CartAddressInputCopyWithImpl;
 @useResult
 $Res call({
- String? copyFromCustomerAddressId, CartDeliveryAddressInput? deliveryAddress
+@JsonKey(includeIfNull: false) String? copyFromCustomerAddressId,@JsonKey(includeIfNull: false) CartDeliveryAddressInput? deliveryAddress
 });
 
 
@@ -166,7 +166,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? copyFromCustomerAddressId,  CartDeliveryAddressInput? deliveryAddress)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(includeIfNull: false)  String? copyFromCustomerAddressId, @JsonKey(includeIfNull: false)  CartDeliveryAddressInput? deliveryAddress)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _CartAddressInput() when $default != null:
 return $default(_that.copyFromCustomerAddressId,_that.deliveryAddress);case _:
@@ -187,7 +187,7 @@ return $default(_that.copyFromCustomerAddressId,_that.deliveryAddress);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? copyFromCustomerAddressId,  CartDeliveryAddressInput? deliveryAddress)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(includeIfNull: false)  String? copyFromCustomerAddressId, @JsonKey(includeIfNull: false)  CartDeliveryAddressInput? deliveryAddress)  $default,) {final _that = this;
 switch (_that) {
 case _CartAddressInput():
 return $default(_that.copyFromCustomerAddressId,_that.deliveryAddress);case _:
@@ -207,7 +207,7 @@ return $default(_that.copyFromCustomerAddressId,_that.deliveryAddress);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? copyFromCustomerAddressId,  CartDeliveryAddressInput? deliveryAddress)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(includeIfNull: false)  String? copyFromCustomerAddressId, @JsonKey(includeIfNull: false)  CartDeliveryAddressInput? deliveryAddress)?  $default,) {final _that = this;
 switch (_that) {
 case _CartAddressInput() when $default != null:
 return $default(_that.copyFromCustomerAddressId,_that.deliveryAddress);case _:
@@ -222,11 +222,11 @@ return $default(_that.copyFromCustomerAddressId,_that.deliveryAddress);case _:
 @JsonSerializable()
 
 class _CartAddressInput extends CartAddressInput {
-  const _CartAddressInput({this.copyFromCustomerAddressId, this.deliveryAddress}): assert(copyFromCustomerAddressId == null || deliveryAddress == null, 'Cannot contain both copyFromCustomerAddressId and deliveryAddress'),super._();
+  const _CartAddressInput({@JsonKey(includeIfNull: false) this.copyFromCustomerAddressId, @JsonKey(includeIfNull: false) this.deliveryAddress}): assert(copyFromCustomerAddressId == null || deliveryAddress == null, 'Cannot contain both copyFromCustomerAddressId and deliveryAddress'),super._();
   factory _CartAddressInput.fromJson(Map<String, dynamic> json) => _$CartAddressInputFromJson(json);
 
-@override final  String? copyFromCustomerAddressId;
-@override final  CartDeliveryAddressInput? deliveryAddress;
+@override@JsonKey(includeIfNull: false) final  String? copyFromCustomerAddressId;
+@override@JsonKey(includeIfNull: false) final  CartDeliveryAddressInput? deliveryAddress;
 
 /// Create a copy of CartAddressInput
 /// with the given fields replaced by the non-null parameter values.
@@ -261,7 +261,7 @@ abstract mixin class _$CartAddressInputCopyWith<$Res> implements $CartAddressInp
   factory _$CartAddressInputCopyWith(_CartAddressInput value, $Res Function(_CartAddressInput) _then) = __$CartAddressInputCopyWithImpl;
 @override @useResult
 $Res call({
- String? copyFromCustomerAddressId, CartDeliveryAddressInput? deliveryAddress
+@JsonKey(includeIfNull: false) String? copyFromCustomerAddressId,@JsonKey(includeIfNull: false) CartDeliveryAddressInput? deliveryAddress
 });
 
 

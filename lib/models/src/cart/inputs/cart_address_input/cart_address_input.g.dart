@@ -18,6 +18,6 @@ _CartAddressInput _$CartAddressInputFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$CartAddressInputToJson(_CartAddressInput instance) =>
     <String, dynamic>{
-      'copyFromCustomerAddressId': instance.copyFromCustomerAddressId,
-      'deliveryAddress': instance.deliveryAddress?.toJson(),
+      'copyFromCustomerAddressId': ?instance.copyFromCustomerAddressId,
+      'deliveryAddress': ?instance.deliveryAddress?.toJson(),
     };

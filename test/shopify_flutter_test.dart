@@ -154,5 +154,24 @@ void main() {
       expect(delivery['countryCode'], 'AU');
       expect(delivery['provinceCode'], 'NSW');
     });
+
+    test('CartAddressInput omits the null field (one-of input)', () {
+      // Shopify's CartAddressInput is a "one of" input: exactly one field may be
+      // present. If toJson emitted `copyFromCustomerAddressId: null` alongside a
+      // set `deliveryAddress`, the server rejects it with
+      // "'CartAddressInput' requires exactly one argument, but 2 were provided".
+      const withDelivery = CartAddressInput(
+        deliveryAddress: CartDeliveryAddressInput(address1: '11 Hinkler Avenue'),
+      );
+      final j1 = withDelivery.toJson();
+      expect(j1.containsKey('copyFromCustomerAddressId'), isFalse);
+      expect(j1.keys, ['deliveryAddress']);
+
+      const withCopy =
+          CartAddressInput(copyFromCustomerAddressId: 'gid://shopify/MailingAddress/1');
+      final j2 = withCopy.toJson();
+      expect(j2.containsKey('deliveryAddress'), isFalse);
+      expect(j2.keys, ['copyFromCustomerAddressId']);
+    });
   });
 }
