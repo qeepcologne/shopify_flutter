@@ -21,6 +21,8 @@ Other:
   * `getXCollectionsAndNProductsSorted` declared `$collectonMetafields` (typo) but used `$collectionMetafields`, so the server rejected the document with `Variable "$collectionMetafields" is not defined`. The Dart caller was already passing the correctly spelled variable, so this method could never have succeeded.
   * `getNArticlesSorted` selected the removed `Article.url` field. Replaced with `onlineStoreUrl`, which is what the `Article` model already parses.
   * `getCollectionByIdQuery` passed a list to the single-collection lookup (`collection(ids: $ids)`); corrected to `collection(id: $id)`. This query has no caller in the package.
+* Fixed `CartAddressInput` serialization. It is a Storefront "one of" input (exactly one field may be present), but `toJson` emitted both `copyFromCustomerAddressId` and `deliveryAddress`, so adding a cart delivery address (via `ShopifyCart.addDeliveryAddresses` or `CartInput.delivery`) failed with `'CartAddressInput' requires exactly one argument, but 2 were provided`. The unused (null) field is now omitted.
+* Example app: builds on the Java 25 / AGP 9 toolchain (Gradle 9.6.1, AGP 9.3.0, built-in Kotlin); removed the hard-coded `price` filter on the collection tab that made collections appear empty; and fixed the Blog/Pages tabs spinning forever on a failed fetch (they now clear the spinner and show the error — e.g. a missing `unauthenticated_read_content` scope — or an empty state).
 
 Migration guide:
 * Replace `image.originalSrc` with `image.url`.
